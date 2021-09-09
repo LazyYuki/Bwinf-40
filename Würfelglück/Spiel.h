@@ -19,8 +19,12 @@ public:
 	void reset();
 	bool update(bool starter); //true someone won
 
+	void SetFigureToSpawnField(Figur* figur);
+	void SetFigureToField(Figur* figur);
+
 private:
 	Spieler* player1;
 	Spieler* player2;
+	Spieler* playerArray[2];
 };
 

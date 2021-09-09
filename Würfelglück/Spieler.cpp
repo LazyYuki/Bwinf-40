@@ -17,3 +17,8 @@ Spieler::Spieler(std::string wuerfelS, int team)
         this->figuren.push_back(figur);
     }
 }
+
+int Spieler::GiveTeamPos()
+{
+    return ++this->FigursActive;
+}

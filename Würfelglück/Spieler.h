@@ -9,7 +9,9 @@ struct Figur
 {
 	Spieler* spieler{};
 	int Startpoint{}; //startpoint on spielfeld
-	int teampos{0}; //pos in Array | 0 best - 4 worst
+	int teampos{0}; //pos in Array | 0 best - 4 worst | 5 spawnfield
+	int pos{};
+	int id{};
 
 	void reset(int team, int pos)
 	{
@@ -40,7 +42,11 @@ public:
 	int AnzahlWuerfen{ 0 };
 	
 	//for game
+	int FigursActive{ 0 }; //keepstrack of the figurs on field
 	Wuerfel wuerfel{};
 	std::vector<Figur>figuren{};
 	std::vector<Figur*>SpawnField{};
+	Figur* ZielFeldArray[4];
+
+	int GiveTeamPos();
 };
