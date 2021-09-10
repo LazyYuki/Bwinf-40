@@ -23,7 +23,7 @@ struct Figur
 	void checkForInZiel(int lowestZielFeld)
 	{
 		lowestZielFeld *= -1;
-		if (lowestZielFeld - 1 == this->pos) teampos = 6; //is in the finalzielspot
+		if (lowestZielFeld + 1 == this->pos) teampos = 6; //is in the finalzielspot
 	}
 };
 
@@ -53,8 +53,9 @@ public:
 	std::vector<Figur>figuren{};
 	std::vector<Figur*> SpawnField; //every figur has one slot
 	std::vector<Figur*> OnAField; //A Field means Starter Field
-	std::array<Figur*, 4> ZielFeldArray = {nullptr}; //0 - first Feld | 4 - Last Feld
+	std::array<Figur*, 4> ZielFeldArray = {nullptr}; //0 - first Feld | 3 - Last Feld
 
 	int GiveTeamPos();
 	int lowestZielFeld();
+	bool onSpawnField(int index);
 };

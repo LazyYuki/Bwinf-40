@@ -138,34 +138,40 @@ void Spiel::moveFigur(Figur* figur, int num)
 
 	if (figur->pos < 0) //figur is already in zielarray
 	{
+		PlaceToGo = figur->pos - num;
+		int lowestZielFeld = figur->spieler->lowestZielFeld() * -1 - 1;
+		int FeldAvaible = figur->spieler->onSpawnField(PlaceToGo);
 
+		if (PlaceToGo > lowestZielFeld && FeldAvaible)
+		{
+			figur->spieler->ZielFeldArray[figur->pos + 1] = nullptr; //Setting the place where he was to nullptr
+			figur->spieler->ZielFeldArray[PlaceToGo * -1 - 1] = figur; //adding to zielfeldarray
+			figur->pos = PlaceToGo;
+			figur->checkForInZiel(lowestZielFeld); //check if in Final Ziel spot
+		}
 	}
 
-	if (figur->Startpoint == 0)
+	int check = 0;
+	if (figur->Startpoint == 0) check = 40; //check = field bevor start
+	else check = 20;
+
+	if (PlaceToGo > check && figur->pos <= check) //if place to go is bigger the bevor start -> has to go to ziel
 	{
-		//ZielFeldchecking
-		if (PlaceToGo > 40)
-		{
-			int AvaibleAfter40 = 40 - figur ->pos - num; //how many times you can go after going on field 40
-			int lowestZielFeld = figur->spieler->lowestZielFeld();
-			if (AvaibleAfter40 < lowestZielFeld) //can fit in zeilspot
-			{
-				this->DeleteFigurFromField(figur); //delete from spielfeld
-				figur->spieler->ZielFeldArray[AvaibleAfter40] = figur; //adding to zielfeldarray
-				figur->pos = AvaibleAfter40 * -1;
-				figur->checkForInZiel(lowestZielFeld); //check if in Final Ziel spot
-			}
-		}
-		else
+		int AvaibleAfter = check - figur->pos - num * -1; //how many times you can go after going on field 40
+		int lowestZielFeld = figur->spieler->lowestZielFeld();
+		int FeldAvaible = figur->spieler->onSpawnField(AvaibleAfter);
+
+		if (AvaibleAfter - 1 < lowestZielFeld && FeldAvaible)
 		{
 			this->DeleteFigurFromField(figur); //delete from spielfeld
-			this->spielfeld[PlaceToGo].Figuren.push_back(figur);
+			figur->spieler->ZielFeldArray[AvaibleAfter - 1] = figur; //adding to zielfeldarray
+			figur->pos = AvaibleAfter * -1;
+			figur->checkForInZiel(lowestZielFeld); //check if in Final Ziel spot
 		}
 	}
 	else
 	{
-		//Start is 21
-		//alles wie da oben machen nur für start als 21
+		this->DeleteFigurFromField(figur); //delete from spielfeld
+		this->spielfeld[PlaceToGo].Figuren.push_back(figur);
 	}
 }
-
