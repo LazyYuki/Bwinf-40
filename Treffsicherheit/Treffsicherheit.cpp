@@ -4,7 +4,7 @@
 
 int main(int argc, char* argv[])
 {
-    SetConsoleTitle(L"Bwinf Junior 2 : Arwed | Fynn | Damian");
+    SetConsoleTitle(L"Bwinf Treffsicherheit : Arwed | Fynn | Damian");
 
     fileManager fmanager = fileManager(fileManager::GetFile(argc, argv));
 
