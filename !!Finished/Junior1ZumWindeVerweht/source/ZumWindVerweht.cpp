@@ -34,13 +34,11 @@ int main(int argc, char* argv[])
         pinwheels.push_back(pinwheel{ vec2{ (double)content[i][0], (double)content[i][1] }, -1 });
     }
 
-    double maximalhoehe;
-
     for (int i = 0; i < houses.size(); i++)
     {
         for (int x = 0; x < pinwheels.size(); x++)
         {
-            maximalhoehe = AbstandZwichenVec2(houses[i].coordinaten, pinwheels[x].coordinaten) / 10;
+            double maximalhoehe = AbstandZwichenVec2(houses[i].coordinaten, pinwheels[x].coordinaten) / 10;
 
             if (maximalhoehe < pinwheels[x].maximalhoehe || pinwheels[x].maximalhoehe == -1) pinwheels[x].maximalhoehe = maximalhoehe;
         }
