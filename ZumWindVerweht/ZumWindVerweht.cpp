@@ -3,7 +3,7 @@
 
 int main(int argc, char* argv[])
 {
-    SetConsoleTitle(L"Bwinf Vom Winde Verweht : Arwed | Fynn | Damian");
+    SetConsoleTitle(L"Bwinf Zum Winde Verweht : Arwed | Fynn | Damian");
 
     fileManager fmanager = fileManager(fileManager::GetFile(argc, argv));
 
