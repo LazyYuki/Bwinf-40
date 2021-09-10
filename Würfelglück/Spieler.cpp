@@ -22,3 +22,13 @@ int Spieler::GiveTeamPos()
 {
     return ++this->FigursActive;
 }
+
+int Spieler::lowestZielFeld()
+{
+    for (int i = 4; i > 0; i--)
+    {
+        if (this->ZielFeldArray[i] == nullptr) return i; //field has no contant yet
+    }
+
+    return 0;
+}

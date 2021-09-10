@@ -31,15 +31,13 @@ void Spiel::reset()
 {
 	//reseting figuren
 	int team = 0;
-	int index = 0;
-	for (int i = 0; i < 8; i++)
+	for (int i = 0; i < 4; i++)
 	{
-		if (i > 4) team = 1;
-		if (index == 5) index = 0;
-		this->playerArray[team]->figuren[index].reset(team, i);
-		this->playerArray[team]->figuren[index].id = i;
+		if (i == 4) team = 1;
+		this->playerArray[team]->figuren[i].reset(team, i);
+		this->playerArray[team]->figuren[i].id = i;
 
-		this->playerArray[team]->SpawnField.push_back(&this->playerArray[team]->figuren[index]);
+		this->playerArray[team]->SpawnField.push_back(&this->playerArray[team]->figuren[i]);
 	}
 
 	//reseting field
@@ -63,12 +61,18 @@ bool Spiel::update(bool starter)
 
 		if (wuerfelnum == 6 && playerArray[index]->SpawnField.size() != 0)
 		{
-			//figur ins spiel setzen
-			
+			SetFigureToField(playerArray[index]->SpawnField[0]);
 		}
 		else if(playerArray[index]->SpawnField.size() != 4) //min. 1 spieler auf Feld
 		{
-			//move figur.getpos1() by wuerfelnum
+			if (playerArray[index]->OnAField.size() != 0)
+			{
+				//move figur.startpoint by wuerfelnum
+			}
+			else
+			{
+				//move figur.getpos1() by wuerfelnum
+			}
 		}
 		//else wird geskipped, da es keine figuren auf dem Feld gibt
 
@@ -78,12 +82,19 @@ bool Spiel::update(bool starter)
 
 void Spiel::SetFigureToSpawnField(Figur* figur)
 {
-	std::vector<Figur*> &figs = this->spielfeld[figur->pos].Figuren;
-	for (int i = 0; i < figs.size(); i++) //find figure in spielfeld and erase it
+	for (int i = 0; i < this->spielfeld[figur->pos].Figuren.size(); i++) //find figure in spielfeld and erase it
 	{
-		if (figs[i] == figur)
+		if (this->spielfeld[figur->pos].Figuren[i] == figur)
 		{
-			figs.erase(figs.begin() + i);
+			this->spielfeld[figur->pos].Figuren.erase(this->spielfeld[figur->pos].Figuren.begin() + i);
+		}
+	}
+
+	for (int i = 0; i < figur->spieler->OnAField.size(); i++) //find figure in OnAField and erase it
+	{
+		if (figur->spieler->OnAField[i] == figur)
+		{
+			figur->spieler->OnAField.erase(figur->spieler->OnAField.begin() + i);
 		}
 	}
 
@@ -96,17 +107,65 @@ void Spiel::SetFigureToSpawnField(Figur* figur)
 void Spiel::SetFigureToField(Figur* figur)
 {
 	figur->teampos = figur->spieler->GiveTeamPos();
-	figur->pos = figur->teampos;
-	this->spielfeld[figur->Startpoint].Figuren.push_back(figur);
+	figur->pos = figur->Startpoint;
+	figur->spieler->OnAField.push_back(figur); //now stands on A Field
+	this->spielfeld[figur->Startpoint].Figuren.push_back(figur);//add to Spielfeld
+	figur->spieler->FigursActive += 1; //is now active figur
 	
-	std::vector<Figur*>& figs = figur->spieler->SpawnField;
-	for (int i = 0; i < figs.size(); i++) //find figure in spawnfield and erase it
+	for (int i = 0; i < figur->spieler->SpawnField.size(); i++) //find figure in spawnfield and erase it
 	{
-		if (figs[i] == figur)
+		if (figur->spieler->SpawnField[i] == figur)
 		{
-			figs.erase(figs.begin() + i);
+			figur->spieler->SpawnField.erase(figur->spieler->SpawnField.begin() + i);
 		}
 	}
+}
 
+void Spiel::DeleteFigurFromField(Figur* figur)
+{
+	for (int i = 0; i < spielfeld[figur->pos].Figuren.size(); i++) //find figure in spawnfield and erase it
+	{
+		if (spielfeld[figur->pos].Figuren[i] == figur)
+		{
+			spielfeld[figur->pos].Figuren.erase(spielfeld[figur->pos].Figuren.begin() + i);
+		}
+	}
+}
+
+void Spiel::moveFigur(Figur* figur, int num)
+{
+	int PlaceToGo = figur->pos + num;
+
+	if (figur->pos < 0) //figur is already in zielarray
+	{
+
+	}
+
+	if (figur->Startpoint == 0)
+	{
+		//ZielFeldchecking
+		if (PlaceToGo > 40)
+		{
+			int AvaibleAfter40 = 40 - figur ->pos - num; //how many times you can go after going on field 40
+			int lowestZielFeld = figur->spieler->lowestZielFeld();
+			if (AvaibleAfter40 < lowestZielFeld) //can fit in zeilspot
+			{
+				this->DeleteFigurFromField(figur); //delete from spielfeld
+				figur->spieler->ZielFeldArray[AvaibleAfter40] = figur; //adding to zielfeldarray
+				figur->pos = AvaibleAfter40 * -1;
+				figur->checkForInZiel(lowestZielFeld); //check if in Final Ziel spot
+			}
+		}
+		else
+		{
+			this->DeleteFigurFromField(figur); //delete from spielfeld
+			this->spielfeld[PlaceToGo].Figuren.push_back(figur);
+		}
+	}
+	else
+	{
+		//Start is 21
+		//alles wie da oben machen nur für start als 21
+	}
 }
 

@@ -21,6 +21,9 @@ public:
 
 	void SetFigureToSpawnField(Figur* figur);
 	void SetFigureToField(Figur* figur);
+	void DeleteFigurFromField(Figur* figur);
+	
+	void moveFigur(Figur* figur, int num);
 
 private:
 	Spieler* player1;
