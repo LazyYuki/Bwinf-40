@@ -6,7 +6,7 @@ Bwinf 40 Aufgaben.
 - Zum Winde verweht
   + Dev: Arwed
   + Language: C++
-  + Status: In Progress
+  * Status: Finished
 - Treffsicherheit
   + Dev: Arwed
   + Language: C++
