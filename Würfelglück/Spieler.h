@@ -16,7 +16,7 @@ struct Figur
 	void reset(int team, int pos)
 	{
 		if (team == 0) this->Startpoint = 0;
-		else this->Startpoint = 21;
+		else this->Startpoint = 20;
 		id = pos;
 	}
 
@@ -42,7 +42,7 @@ struct Wuerfel
 class Spieler
 {
 public:
-	Spieler(std::string wuerfelS, int team);
+	Spieler(std::string wuerfelS, int team); //Wuerfel String | team 0 or 1
 	//Stats
 	int Wins{ 0 };
 	int AnzahlWuerfen{ 0 };
@@ -52,10 +52,12 @@ public:
 	Wuerfel wuerfel{};
 	std::vector<Figur>figuren{};
 	std::vector<Figur*> SpawnField; //every figur has one slot
+	std::vector<Figur*> OnField; //every figur has one slot
 	std::vector<Figur*> OnAField; //A Field means Starter Field
 	std::array<Figur*, 4> ZielFeldArray = {nullptr}; //0 - first Feld | 3 - Last Feld
 
 	int GiveTeamPos();
 	int lowestZielFeld();
+	void updateTeamPos();
 	bool onSpawnField(int index);
 };

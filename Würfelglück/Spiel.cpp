@@ -31,13 +31,16 @@ void Spiel::reset()
 {
 	//reseting figuren
 	int team = 0;
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++) //put figur in spawnfield and reseting it
 	{
-		if (i == 4) team = 1;
 		this->playerArray[team]->figuren[i].reset(team, i);
-		this->playerArray[team]->figuren[i].id = i;
-
 		this->playerArray[team]->SpawnField.push_back(&this->playerArray[team]->figuren[i]);
+
+		if (i == 3 && team == 0)
+		{
+			i = -1; //reseting loop
+			team = 1; //changing team
+		}
 	}
 
 	//reseting field
@@ -78,6 +81,8 @@ bool Spiel::update(bool starter)
 
 	} while (wuerfelnum == 6);
 	
+	//del later
+	return false;
 }
 
 void Spiel::SetFigureToSpawnField(Figur* figur)
@@ -100,7 +105,7 @@ void Spiel::SetFigureToSpawnField(Figur* figur)
 
 	figur->pos = -1;
 	figur->teampos = 5;
-	figur->spieler->FigursActive -= 1;
+	figur->spieler->FigursActive--;
 	figur->spieler->SpawnField.push_back(figur); // add it back to spawn field
 }
 
@@ -109,8 +114,8 @@ void Spiel::SetFigureToField(Figur* figur)
 	figur->teampos = figur->spieler->GiveTeamPos();
 	figur->pos = figur->Startpoint;
 	figur->spieler->OnAField.push_back(figur); //now stands on A Field
+	figur->spieler->OnField.push_back(figur); //now stands on A Field
 	this->spielfeld[figur->Startpoint].Figuren.push_back(figur);//add to Spielfeld
-	figur->spieler->FigursActive += 1; //is now active figur
 	
 	for (int i = 0; i < figur->spieler->SpawnField.size(); i++) //find figure in spawnfield and erase it
 	{

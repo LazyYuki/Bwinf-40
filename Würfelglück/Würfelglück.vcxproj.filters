@@ -42,4 +42,7 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="done.txt" />
+  </ItemGroup>
 </Project>

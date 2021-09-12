@@ -6,9 +6,9 @@ Spieler::Spieler(std::string wuerfelS, int team)
 
     int Startpoint{};
     if (team == 0) Startpoint = 0; //startpoints on field
-    else Startpoint = 21; //startpoints on field
+    else Startpoint = 20; //startpoints on field
 
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++) //save figur in Spieler
     {
         Figur figur;
         figur.Startpoint = Startpoint;
@@ -20,7 +20,7 @@ Spieler::Spieler(std::string wuerfelS, int team)
 
 int Spieler::GiveTeamPos()
 {
-    return ++this->FigursActive;
+    return ++this->FigursActive - 1;
 }
 
 int Spieler::lowestZielFeld()
@@ -31,6 +31,14 @@ int Spieler::lowestZielFeld()
     }
 
     return 0;
+}
+
+void Spieler::updateTeamPos()
+{
+    for (Figur* fig : this->OnField)
+    {
+        
+    }
 }
 
 bool Spieler::onSpawnField(int index)

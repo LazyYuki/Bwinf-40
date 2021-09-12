@@ -1,0 +1,11 @@
+Testging:
+
+	Spiel:
+		Spiel::reset() -> Done
+		Spiel::Spiel() -> Done
+		Spiel::SetFigureToField() -> Done
+		Spiel::SetFigureToSpawnField() -> Not Done (needs updateTeamPós)
+
+	Spieler:
+		Spieler::Spieler() -> Done
+		updateTeamPos() -> Not Fnished Making
