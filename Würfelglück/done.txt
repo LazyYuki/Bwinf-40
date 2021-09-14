@@ -4,8 +4,9 @@ Testging:
 		Spiel::reset() -> Done
 		Spiel::Spiel() -> Done
 		Spiel::SetFigureToField() -> Done
-		Spiel::SetFigureToSpawnField() -> Not Done (needs updateTeamPós)
+		Spiel::SetFigureToSpawnField() -> Not Done (needs updateTeamPos)
 
 	Spieler:
 		Spieler::Spieler() -> Done
-		updateTeamPos() -> Not Fnished Making
+		updateTeamPos() -> Not Finished Making
+		InsertFigur() -> Has to be done for updatePlayer()

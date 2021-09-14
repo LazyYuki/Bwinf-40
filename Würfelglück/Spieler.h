@@ -60,4 +60,7 @@ public:
 	int lowestZielFeld();
 	void updateTeamPos();
 	bool onSpawnField(int index);
+
+private:
+	void InsertFigur(std::array< Figur*, 4>& arr, int index, Figur* fig);
 };

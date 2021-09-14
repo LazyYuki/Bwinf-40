@@ -154,6 +154,8 @@ void Spiel::moveFigur(Figur* figur, int num)
 			figur->pos = PlaceToGo;
 			figur->checkForInZiel(lowestZielFeld); //check if in Final Ziel spot
 		}
+
+		return;
 	}
 
 	int check = 0;
