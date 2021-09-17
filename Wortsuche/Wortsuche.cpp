@@ -1,5 +1,6 @@
 #include "include.h"
 #include "fileManager.h"
+#include "wordJumble.h"
 
 int main(int argc, char* argv[])
 {

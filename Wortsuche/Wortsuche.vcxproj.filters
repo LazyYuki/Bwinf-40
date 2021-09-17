@@ -21,6 +21,9 @@
     <ClCompile Include="fileManager.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="wordJumble.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include.h">
@@ -29,5 +32,11 @@
     <ClInclude Include="fileManager.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="wordJumble.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Requirements.txt" />
   </ItemGroup>
 </Project>

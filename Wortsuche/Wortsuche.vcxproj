@@ -140,12 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="fileManager.cpp" />
+    <ClCompile Include="woertersalat.cpp" />
     <ClCompile Include="wordJumble.cpp" />
     <ClCompile Include="Wortsuche.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fileManager.h" />
     <ClInclude Include="include.h" />
+    <ClInclude Include="woertersalat.h" />
     <ClInclude Include="wordJumble.h" />
   </ItemGroup>
   <ItemGroup>

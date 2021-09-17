@@ -15,3 +15,7 @@ private:
 	std::vector<std::string> words{};
 };
 
+class WordJumble
+{
+};
+
