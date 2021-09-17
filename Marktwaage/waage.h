@@ -1,18 +1,14 @@
-#pragma 
+#pragma once
 #include "include.h"
 
-struct gewichtstuck
+struct Gewicht
 {
 	int gewicht;
-	int anzahl;
 };
 
 class waage
 {
 public:
-	std::vector<gewichtstuck> gewichte{};
-
-	bool Possible(int Gewicht);
-
+	static bool Possible(std::vector<Gewicht> gewichte, int index, int balance);
 };
 

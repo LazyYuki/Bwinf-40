@@ -1,0 +1,19 @@
+Schwierigkeit:
+
+	Leicht:
+		Wörter richtung: Vorwärts, Rückwärts
+		Wörter ausrichtung: Zeilen, Spalten, Diagonale
+		Buchstaben: X, Y, Z, W, Q, V
+			-> Einfache Buchstaben Zum schneller erkennen der Wörter
+
+	Mittel:
+		Wörter richtung: Vorwärts, Rückwärts
+		Wörter ausrichtung: Zeilen, Spalten, Diagonale
+		Fragmente von Wörter dazu generiert
+
+	Schwer:
+		Wörter richtung: Vorwärts, Rückwärts
+		Wörter ausrichtung: Zeilen, Spalten, Diagonale
+		Wörter kreuzen und kombinieren sich
+			-> LEBEN + BEBEN = LEBENEN
+		Weiter Wörter untermischen
