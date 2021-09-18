@@ -10,7 +10,7 @@
 
 struct vec2
 {
-	int x, y;
+	int x, y, produkt{};
 };
 
 #endif

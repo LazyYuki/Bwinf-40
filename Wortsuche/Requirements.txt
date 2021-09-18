@@ -4,7 +4,7 @@ Schwierigkeit:
 		Wörter richtung: Vorwärts, Rückwärts
 		Wörter ausrichtung: Zeilen, Spalten, Diagonale
 		Buchstaben: X, Y, Z, W, Q, V
-			-> Einfache Buchstaben Zum schneller erkennen der Wörter
+			-> Einfache Buchstaben Zum schneller erkennen der Wörter (die nicht im Wort vorhanden sind)
 
 	Mittel:
 		Wörter richtung: Vorwärts, Rückwärts

@@ -6,6 +6,28 @@ int main(int argc, char* argv[])
 {
     SetConsoleTitle(L"Bwinf MarktWaage : Arwed | Fynn | Damian");
 
+    //testing
+
+    wordJumble wj = wordJumble(vec2{ 10 , 10, 100 }, std::vector<std::string>{"lol"});
+
+    std::vector<Inhalt> lololol{};
+
+    for (int i = 0; i < 100; i++)
+    {
+        Inhalt temp;
+        temp.isWord = false;
+        temp.letter = false;
+        lololol.push_back(temp);
+    }
+
+    lololol[20].isWord = true;
+
+    std::string lol1 {"lol"};
+    word Word{ &lol1, vec2{3, 2, 12}, 1 , false};
+
+    std::cout << std::boolalpha << wj.Possible(&lololol, Word, true);
+
+    return 0;
     fileManager fmanager = fileManager(fileManager::GetFile(argc, argv));
 
     std::vector<std::vector<int>> content1{};
@@ -13,7 +35,7 @@ int main(int argc, char* argv[])
     std::vector<std::string> words{};
 
     fmanager.ExtractInfo(content1, false);
-    vec2 RaetselSize = vec2{ content1[0][0], content1[0][1] };
+    vec2 RaetselworldSize = vec2{ content1[0][0], content1[0][1], content1[0][0] * content1[0][1]};
 
     fmanager.ExtractInfo(content1, false);
     int AnzahlWoerter = content1[1][0];
