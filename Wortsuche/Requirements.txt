@@ -14,6 +14,7 @@ Schwierigkeit:
 	Schwer:
 		Wörter richtung: Vorwärts, Rückwärts
 		Wörter ausrichtung: Zeilen, Spalten, Diagonale
+		Fragmente von Wörter dazu generiert
 		Wörter kreuzen und kombinieren sich
 			-> LEBEN + BEBEN = LEBENEN
 		Weiter Wörter untermischen

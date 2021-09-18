@@ -16,16 +16,14 @@ int main(int argc, char* argv[])
     {
         Inhalt temp;
         temp.isWord = false;
-        temp.letter = false;
+        temp.letter = NULL;
         lololol.push_back(temp);
     }
 
-    lololol[20].isWord = true;
+    //lololol[12].letter = 'o';
 
     std::string lol1 {"lol"};
-    word Word{ &lol1, vec2{3, 2, 12}, 1 , false};
-
-    std::cout << std::boolalpha << wj.Possible(&lololol, Word, true);
+    word Word{ &lol1, vec2{3, 2, 12}, 3 , false};
 
     return 0;
     fileManager fmanager = fileManager(fileManager::GetFile(argc, argv));

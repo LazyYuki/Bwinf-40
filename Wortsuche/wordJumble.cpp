@@ -51,39 +51,62 @@ std::vector<Inhalt> wordJumble::CreateField(bool Kreuzung)
 
 bool wordJumble::Possible(std::vector<Inhalt> *playfield, word Word, bool Kreuzung)
 {
+	std::vector<Inhalt> playfieldCopy = *playfield;
+	int index{0};
 	//end of word check
 	if (Word.ausrichtung == 0 && Word.startpoint.x + Word.word->size() - 1 <= worldSize.x) //waagerecht -> start.x + word.worldSize < spielfeld.worldSize
 	{
-		if (Kreuzung)
-			for (int i = Word.startpoint.produkt; i < Word.startpoint.produkt + Word.word->size(); i++)
-				if ((*playfield)[i].isWord) return false;
-
+		for (int i = Word.startpoint.produkt; i < Word.startpoint.produkt + Word.word->size(); i++, index++)
+		{
+			if (!Kreuzung && (*playfield)[i].isWord) return false;
+			else if (!Kreuzung && (*playfield)[i].letter != NULL && (*playfield)[i].letter != Word.word->at(index)) return false;
+			else playfieldCopy[i] = Inhalt{ Word.word->at(index), true };
+		}
+		
+		*playfield = playfieldCopy;
 		return true;
 	}
 	else if (Word.ausrichtung == 1 && Word.startpoint.y + Word.word->size() - 1 <= worldSize.y) //senkrecht -> start.y + word.worldSize < spielfeld.worldSize
 	{
-		if (Kreuzung)
-			for (int i = Word.startpoint.produkt; i < Word.startpoint.produkt + Word.word->size() * worldSize.x; i += worldSize.x)
-				if ((*playfield)[i].isWord) return false;
-
+		for (int i = Word.startpoint.produkt; i < Word.startpoint.produkt + (Word.word->size() * worldSize.x); i += worldSize.x, index++)
+		{
+			if (!Kreuzung && (*playfield)[i].isWord) return false;
+			else if (!Kreuzung && (*playfield)[i].letter != NULL && (*playfield)[i].letter != Word.word->at(index)) return false;
+			else playfieldCopy[i] = Inhalt{ Word.word->at(index), true };
+		}
+				
+		*playfield = playfieldCopy;
 		return true;
 	}
 	else if (Word.ausrichtung == 2 && Word.startpoint.x + Word.word->size() - 1 <= worldSize.x && Word.startpoint.y + Word.word->size() - 1 <= worldSize.y) //diagonale (rechts)
 	{
-		if (Kreuzung)
-			for (int i = Word.startpoint.produkt; i < Word.startpoint.produkt + Word.word->size(); i += worldSize.x + 1)
-				if ((*playfield)[i].isWord) return false;
+		for (int i = Word.startpoint.produkt; i < Word.startpoint.produkt + (Word.word->size() * worldSize.x); i += worldSize.x + 1, index++)
+		{
+			if (!Kreuzung && (*playfield)[i].isWord) return false;
+			else if (!Kreuzung && (*playfield)[i].letter != NULL && (*playfield)[i].letter != Word.word->at(index)) return false;
+			else playfieldCopy[i] = Inhalt{ Word.word->at(index), true };
+		}
 
+		*playfield = playfieldCopy;
 		return true;
 	}
-	else if (Word.ausrichtung == 3 && (signed int)Word.startpoint.x - (signed int)Word.word->size() + 1 > 0 && Word.startpoint.y - Word.word->size() + 1 > 0) //diagonale (links)
+	else if (Word.ausrichtung == 3 && (signed int)Word.startpoint.x - (signed int)Word.word->size() + 1 > 0 && (signed int)Word.startpoint.y + (signed int)Word.word->size() - 1 > 0) //diagonale (links)
 	{
-		if (Kreuzung)
-			for (int i = Word.startpoint.produkt; i > Word.startpoint.produkt + Word.word->size(); i -= worldSize.x - 1)
-				if ((*playfield)[i].isWord) return false;
+		for (int i = Word.startpoint.produkt; i < Word.startpoint.produkt + ((Word.word->size() - 1) * (static_cast<unsigned __int64>(worldSize.x) - 1)) + 1; i += worldSize.x - 1, index++)
+		{
+			if (!Kreuzung && (*playfield)[i].isWord) return false;
+			else if (!Kreuzung && (*playfield)[i].letter != NULL && (*playfield)[i].letter != Word.word->at(index)) return false;
+			else playfieldCopy[i] = Inhalt{ Word.word->at(index), true };
+		}
 
+		*playfield = playfieldCopy;
 		return true;
 	}
 
 	return false;
+}
+
+void wordJumble::Fill(std::vector<Inhalt>* playfield, std::vector<char> fillers, bool withExtraWords)
+{
+
 }
