@@ -35,8 +35,12 @@
     <ClInclude Include="wordJumble.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="germanWords.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Requirements.txt" />
+    <Text Include="germanwords.txt" />
   </ItemGroup>
 </Project>

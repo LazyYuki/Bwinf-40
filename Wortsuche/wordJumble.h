@@ -25,12 +25,14 @@ public:
 	std::vector<Inhalt> Schwer();
 
 	//bool Possible(std::vector<Inhalt>* playfield, word Word, bool Kreuzung); // false - keine Kreuzungen | true - Kreuzungen
+	void Fill(std::vector<Inhalt>* playfield, std::vector<char> fillers, bool withExtraWords);
 
 private:
 	vec2 worldSize{};
 	std::vector<std::string> words{};
 	std::vector<Inhalt> CreateField(bool Kreuzung);
 	bool Possible(std::vector<Inhalt>* playfield, word Word, bool Kreuzung); // false - keine Kreuzungen | true - Kreuzungen
-	void Fill(std::vector<Inhalt>* playfield, std::vector<char> fillers, bool withExtraWords);
+	//void Fill(std::vector<Inhalt>* playfield, std::vector<char> fillers, bool withExtraWords); //fill empty space
+	std::string toUpper(std::string s);
 };
 

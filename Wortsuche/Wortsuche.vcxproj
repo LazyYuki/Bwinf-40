@@ -145,10 +145,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fileManager.h" />
+    <ClInclude Include="germanWords.h" />
     <ClInclude Include="include.h" />
     <ClInclude Include="wordJumble.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="germanwords.txt" />
     <Text Include="Requirements.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

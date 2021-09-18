@@ -6,7 +6,7 @@ wordJumble::wordJumble(vec2 worldSize, std::vector<std::string> words)
 	this->words = words;
 }
 
-
+//--------------------------- Difficulties ---------------------------
 
 std::vector<Inhalt> wordJumble::Einfach()
 {
@@ -24,7 +24,7 @@ std::vector<Inhalt> wordJumble::Schwer()
 	return std::vector<Inhalt>{};
 }
 
-
+//--------------------------- Helper Functions ---------------------------
 
 std::vector<Inhalt> wordJumble::CreateField(bool Kreuzung)
 {
@@ -109,4 +109,10 @@ bool wordJumble::Possible(std::vector<Inhalt> *playfield, word Word, bool Kreuzu
 void wordJumble::Fill(std::vector<Inhalt>* playfield, std::vector<char> fillers, bool withExtraWords)
 {
 
+}
+
+std::string wordJumble::toUpper(std::string s)
+{
+	for (int i = 0; i < s.size(); i++) s[i] = toupper(s[i]);
+	return s;
 }
