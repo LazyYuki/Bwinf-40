@@ -5,27 +5,9 @@
 int main(int argc, char* argv[])
 {
     SetConsoleTitle(L"Bwinf MarktWaage : Arwed | Fynn | Damian");
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    srand(time(NULL));
 
-    //testing
-
-    wordJumble wj = wordJumble(vec2{ 10 , 10, 100 }, std::vector<std::string>{"lol"});
-
-    std::vector<Inhalt> lololol{};
-
-    for (int i = 0; i < 100; i++)
-    {
-        Inhalt temp;
-        temp.isWord = false;
-        temp.letter = NULL;
-        lololol.push_back(temp);
-    }
-
-    //lololol[12].letter = 'o';
-
-    std::string lol1 {"lol"};
-    word Word{ &lol1, vec2{3, 2, 12}, 3 , false};
-
-    return 0;
     fileManager fmanager = fileManager(fileManager::GetFile(argc, argv));
 
     std::vector<std::vector<int>> content1{};
@@ -40,15 +22,23 @@ int main(int argc, char* argv[])
 
     content1.clear();
 
+    std::cout << "Woerter: ";
+
     for (int i = 0; i < AnzahlWoerter; i++) //iterate throught Mitglieder
     {
         fmanager.ExtractInfo(content, false, false); //Add to content
         words.push_back(content[i][0]); //not the best but yeahhh
+        std::cout << content[i][0];
+        if (i+1 == AnzahlWoerter) std::cout << "\n\n";
+        else std::cout << ", ";
     }
 
-    for (std::string c : words)
+    wordJumble wj = wordJumble(RaetselworldSize, words);
+
+    for (int i = 0; i < 10; i++)
     {
-        std::cout << c << std::endl;
+        wj.DisplayPlayfield(wj.Einfach(), true, hConsole);
+        std::cout << std::endl;
     }
 
     int lol{};
