@@ -5,6 +5,7 @@ Schwierigkeit:
 		Wörter ausrichtung: Zeilen, Spalten, Diagonale
 		Buchstaben: X, Y, Z, W, Q, V
 			-> Einfache Buchstaben Zum schneller erkennen der Wörter (die nicht im Wort vorhanden sind)
+		Anfangsbuchstaben von den Wörtern werden nicht gefillt (orgineler anfangscharackter)
 
 	Mittel:
 		Wörter richtung: Vorwärts, Rückwärts

@@ -35,9 +35,9 @@ int main(int argc, char* argv[])
 
     wordJumble wj = wordJumble(RaetselworldSize, words);
 
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 1; i++)
     {
-        wj.DisplayPlayfield(wj.Einfach(), true, hConsole);
+        wj.DisplayPlayfield(wj.Mittel(), hConsole);
         std::cout << std::endl;
     }
 
