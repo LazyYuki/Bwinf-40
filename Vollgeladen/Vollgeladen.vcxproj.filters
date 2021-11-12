@@ -24,6 +24,9 @@
     <ClCompile Include="Hotel.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Tag.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fileManager.h">
@@ -33,6 +36,9 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Hotel.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Tag.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

@@ -141,12 +141,14 @@
   <ItemGroup>
     <ClCompile Include="fileManager.cpp" />
     <ClCompile Include="Hotel.cpp" />
+    <ClCompile Include="Tag.cpp" />
     <ClCompile Include="Vollgeladen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fileManager.h" />
     <ClInclude Include="Hotel.h" />
     <ClInclude Include="include.h" />
+    <ClInclude Include="Tag.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
