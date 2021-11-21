@@ -1,0 +1,10 @@
+Enter FilePath: C:\Users\arwed\source\repos\LazyYuki\Bwinf-40\!!Finished\Vollgeladen\Beispiele\hotels1.txt
+File is Valid
+
+Beendet nach 5 Tagen.
+
+Benutzte Hotels:
+Hotel Nummer: 2   Entfernung vom Startpunkt: 347    Bewertung: 2.7
+Hotel Nummer: 6   Entfernung vom Startpunkt: 687    Bewertung: 4.4
+Hotel Nummer: 7   Entfernung vom Startpunkt: 1007    Bewertung: 2.8
+Hotel Nummer: 10   Entfernung vom Startpunkt: 1360    Bewertung: 2.8

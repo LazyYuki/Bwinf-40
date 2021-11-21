@@ -4,9 +4,9 @@
 
 int main(int argc, char* argv[])
 {
-    bool MitSchritten = true;
+    bool MitSchritten = false; //Nur für Debug zwecke gedacht
 
-    SetConsoleTitle(L"Bwinf MarktWaage : Arwed | Fynn | Damian");
+    SetConsoleTitle(L"Bwinf Vollgeladen : Arwed | Fynn | Damian");
 
     fileManager fmanager = fileManager(fileManager::GetFile(argc, argv));
   
@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
 
     content.clear();
 
-    for (i = 0; i < AnzahlHotels; i++) //iterate throught Mitglieder
+    for (i = 0; i < AnzahlHotels; i++)
     {
         fmanager.ExtractInfo(content, false, true);
         Hotels.push_back(Hotel(std::atoi(content[i][0].c_str()), std::atof(content[i][1].c_str()), i));
