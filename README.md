@@ -1,3 +1,12 @@
+## Runde 1 bestanden
+  + Status: Noch nicht
+
+#Abgegebene Projekte:
+  + Zum Winde Verweht
+  + Treffsicherheit
+  + Vollgeladen
+
+
 # Bwinf-40
 Bwinf 40 Aufgaben.
 
@@ -16,9 +25,9 @@ Bwinf 40 Aufgaben.
   + Language: Python
   + Status: In Progress
 - Vollgeladen
-  + Dev: -
-  + Language: -
-  + Status: -
+  + Dev: - Arwed
+  + Language: - C++
+  + Status: - Finished
 - Wortsuche
   + Dev: -
   + Language: -
